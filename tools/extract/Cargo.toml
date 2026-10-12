@@ -1,0 +1,10 @@
+[package]
+name = "payne-extract"
+version = "0.1.0"
+edition = "2024"
+description = "Generates payne's runtime data from the player's own Max Payne 2 install."
+license = "MIT"
+publish = false
+
+[dependencies]
+payne = { path = "../.." }

@@ -1,0 +1,15 @@
+# (c) bullet time with the MP5, three kills (targets 1, 2, 0: the near ones first): efficiency and
+# the hourglass rise
+0.0 aim=t1 weapon=5
+0.4 bt aim=t1
+0.5 aim=t1
+0.9 shot=c_bt_on
+1.0 fire aim=t1
+1.8 shot=c_streaks
+2.6 fire aim=t2
+2.7 shot=c_kill1
+4.4 fire aim=t0
+4.5 shot=c_kill2
+7.0 aim=t0
+7.4 shot=c_kill3
+7.6 quit

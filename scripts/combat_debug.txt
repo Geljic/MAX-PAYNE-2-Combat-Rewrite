@@ -1,0 +1,9 @@
+# The F1 debug overlay in combat mode (run with PAYNE_DEBUG=1): each enemy's mode over its head,
+# a sight line to Max (green while it sees him), a mode-coloured marker, the cover it runs to.
+0.0 combat god=on weapon=0
+0.6 shot=a_idle_modes
+1.0 mash aim=t0
+1.4 aim=t0
+2.0 shot=b_alerted_modes
+3.0 shot=c_cover_lines
+3.6 quit

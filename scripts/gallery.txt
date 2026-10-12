@@ -1,0 +1,28 @@
+# Gallery check: walk to the firing line (x=20), 10 Beretta shots at the 10 m board, reload, 10 at
+# 25 m, a 20-round MP5 burst at 15 m, then look at the holes. Board centres (x, 1.4, z) are in
+# payne::world::gallery: 5 m x=16.4, 10 m x=23.6, 15 m x=18.2, 25 m x=21.8, 50 m x=20.
+# The Beretta fires every 0.3 s, so a held mash of 3 s is 10 shots; the MP5 about every 0.12 s.
+0.0 weapon=0
+0.1 right
+3.95
+5.0 aim=23.6,1.4,-10
+5.5 shot=g1_gameplay
+5.6 mash aim=23.6,1.4,-10
+8.5 aim=23.6,1.4,-10
+8.7 reload aim=23.6,1.4,-10
+8.9 aim=21.8,1.4,-25
+11.5 mash aim=21.8,1.4,-25
+14.4 aim=21.8,1.4,-25
+14.8 weapon=5 aim=18.2,1.4,-15
+15.6 fire aim=18.2,1.4,-15
+18.0 aim=18.2,1.4,-15
+19.5 shot=g2_gameplay_hud
+19.6 inspect=1
+21.0 shot=g3_board_10m
+21.1 inspect=3
+23.0 shot=g4_board_25m
+23.1 inspect=2
+25.0 shot=g5_board_15m
+25.1 inspect=off
+26.0 shot=g6_back_to_play
+26.1 quit

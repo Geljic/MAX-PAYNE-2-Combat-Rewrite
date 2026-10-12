@@ -1,0 +1,9 @@
+# (d) standing idle with the Beretta, seen from the front: the gun must be in Max's RIGHT hand
+# (the figure's right is the screen's left when he faces the camera)
+0.0 cam=front
+0.6 shot=d_front
+0.7 cam=side
+1.0 shot=d_side
+1.1 cam=back
+1.4 shot=d_back
+1.6 quit

@@ -1,0 +1,9 @@
+/target
+/work/
+# Derived from the player's own game files: never commit
+/mp2-files/
+/assets/generated/
+*.ras
+*.kf2
+*.kfs
+*.skd

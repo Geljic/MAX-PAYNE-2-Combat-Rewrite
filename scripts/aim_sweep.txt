@@ -1,0 +1,206 @@
+# Aim sweep: the gun barrel must point at the crosshair / aim point in every aiming state.
+#   PAYNE_DEBUG=1 PAYNE_AIM_LOG=1 cargo run --release --example range --features bevy -- \
+#       --script scripts/aim_sweep.txt --shots /tmp/aim_shots
+# PAYNE_DEBUG=1 starts with the F1 gizmos on: the cyan barrel lines must end on the red aim ball
+# (under the crosshair). PAYNE_AIM_LOG=1 logs the barrel miss in degrees every frame.
+# Points: A ahead, L left, R right, U up (far, so running does not change their direction much),
+# D down (near the start). Shots are <phase>_<point>_<camera>. While the camera orbits
+# (cam=side/front) the crosshair is not used, so those lines hold only the movement keys and the
+# arm aims along the last yaw/pitch. Prone has gameplay-camera shots only (orbits clip into Max).
+# --- Beretta, standing
+0.30 aim=0,1.4,-40 slowmo=off
+1.00 shot=stand_A_game
+1.05
+1.05 cam=side
+1.20 shot=stand_A_side
+1.25 cam=default
+1.35 aim=-30,1.4,-25
+2.05 shot=stand_L_game
+2.10
+2.10 cam=side
+2.25 shot=stand_L_side
+2.30 cam=default
+2.40 aim=30,1.4,-25
+3.10 shot=stand_R_game
+3.15
+3.15 cam=side
+3.30 shot=stand_R_side
+3.35 cam=default
+3.45 aim=0,25,-20
+4.15 shot=stand_U_game
+4.20
+4.20 cam=side
+4.35 shot=stand_U_side
+4.40 cam=default
+4.50 aim=0,0,-3
+5.20 shot=stand_D_game
+5.25
+5.25 cam=side
+5.40 shot=stand_D_side
+5.45 cam=default
+# --- Beretta, running (directions are relative to the aim)
+5.55 fwd aim=0,1.4,-40
+6.15 shot=runfwd_A_game
+6.20 fwd
+6.20 cam=side
+6.35 shot=runfwd_A_side
+6.40 cam=default
+6.50 back aim=0,1.4,-40
+7.10 shot=runback_A_game
+7.15 back
+7.15 cam=side
+7.30 shot=runback_A_side
+7.35 cam=default
+7.45 left aim=0,1.4,-40
+8.05 shot=runleft_A_game
+8.10 left
+8.10 cam=side
+8.25 shot=runleft_A_side
+8.30 cam=default
+8.40 right aim=0,1.4,-40
+9.00 shot=runright_A_game
+9.05 right
+9.05 cam=side
+9.20 shot=runright_A_side
+9.25 cam=default
+9.35 fwd right aim=0,1.4,-40
+9.95 shot=rundiag_A_game
+10.00 fwd right
+10.00 cam=side
+10.15 shot=rundiag_A_side
+10.20 cam=default
+10.30 fwd aim=-30,1.4,-25
+10.90 shot=runfwd_L_game
+10.95 fwd
+10.95 cam=side
+11.10 shot=runfwd_L_side
+11.15 cam=default
+11.25 fwd aim=0,25,-20
+11.85 shot=runfwd_U_game
+11.90 fwd
+11.90 cam=side
+12.05 shot=runfwd_U_side
+12.10 cam=default
+12.20
+# --- Beretta, crouched
+12.70 crouch aim=30,1.4,-25
+13.40 shot=crouch_R_game
+13.45 crouch
+13.45 cam=side
+13.60 shot=crouch_R_side
+13.65 cam=default
+13.75
+# --- Beretta, shootdodge forward: aim ahead, then left mid-dive; then prone
+14.25 aim=0,1.4,-40
+15.05 fwd shootdodge aim=0,1.4,-40
+15.15 aim=0,1.4,-40
+15.50 shot=dive_A_game
+15.55 aim=-30,1.4,-25
+15.80 shot=dive_L_game
+15.85
+15.85 cam=side
+15.95 shot=dive_L_side
+16.00 cam=default
+17.55 aim=0,1.4,-40
+18.15 shot=prone_A_game
+18.50 aim=30,1.4,-25
+19.10 shot=prone_R_game
+19.45 aim=0,25,-20
+20.05 shot=prone_U_game
+20.40 fwd
+20.50
+# --- Beretta, firing while standing
+22.20 mash aim=-30,1.4,-25
+22.80 shot=fire_L_game
+22.85 mash
+22.85 cam=side
+23.00 shot=fire_L_side
+23.05 cam=default
+23.15
+# --- Dual Berettas (front camera: right gun on the screen's left)
+23.45 weapon=1
+24.45 aim=-30,1.4,-25
+25.15 shot=dual_stand_L_game
+25.20
+25.20 cam=front
+25.35 shot=dual_stand_L_front
+25.40 cam=default
+25.50 aim=30,1.4,-25
+26.20 shot=dual_stand_R_game
+26.25
+26.25 cam=front
+26.40 shot=dual_stand_R_front
+26.45 cam=default
+26.55 aim=0,25,-20
+27.25 shot=dual_stand_U_game
+27.30
+27.30 cam=front
+27.45 shot=dual_stand_U_front
+27.50 cam=default
+27.60 fwd aim=0,1.4,-40
+28.20 shot=dual_runfwd_A_game
+28.25 fwd
+28.25 cam=front
+28.40 shot=dual_runfwd_A_front
+28.45 cam=default
+28.55
+29.05 aim=0,1.4,-40
+29.85 fwd shootdodge aim=0,1.4,-40
+29.95 aim=0,1.4,-40
+30.30 shot=dual_dive_A_game
+30.35 aim=30,1.4,-25
+30.60 shot=dual_dive_R_game
+30.65
+30.65 cam=side
+30.75 shot=dual_dive_R_side
+30.80 cam=default
+32.35 aim=-30,1.4,-25
+32.95 shot=dual_prone_L_game
+33.30 fwd
+33.40
+# --- Kalashnikov (two-handed: the left hand must stay on the fore-grip)
+35.10 weapon=6
+36.30 aim=0,1.4,-40
+37.00 shot=ak_stand_A_game
+37.05
+37.05 cam=side
+37.20 shot=ak_stand_A_side
+37.25 cam=default
+37.35 aim=-30,1.4,-25
+38.05 shot=ak_stand_L_game
+38.10
+38.10 cam=side
+38.25 shot=ak_stand_L_side
+38.30 cam=default
+38.40 aim=0,0,-3
+39.10 shot=ak_stand_D_game
+39.15
+39.15 cam=side
+39.30 shot=ak_stand_D_side
+39.35 cam=default
+39.45 aim=0,25,-20
+40.15 shot=ak_stand_U_game
+40.20
+40.20 cam=side
+40.35 shot=ak_stand_U_side
+40.40 cam=default
+40.50 right aim=0,1.4,-40
+41.10 shot=ak_runright_A_game
+41.15 right
+41.15 cam=side
+41.30 shot=ak_runright_A_side
+41.35 cam=default
+41.45
+41.95 aim=0,1.4,-40
+42.75 fwd shootdodge aim=0,1.4,-40
+42.85 aim=0,1.4,-40
+43.20 shot=ak_dive_A_game
+43.25 aim=30,1.4,-25
+43.50 shot=ak_dive_R_game
+43.55
+43.55 cam=side
+43.65 shot=ak_dive_R_side
+43.70 cam=default
+45.25 aim=-30,1.4,-25
+45.85 shot=ak_prone_L_game
+46.50 quit

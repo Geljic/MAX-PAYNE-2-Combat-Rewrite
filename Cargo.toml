@@ -1,0 +1,27 @@
+[package]
+name = "payne"
+version = "0.1.0"
+edition = "2024"
+description = "Engine-agnostic Max Payne 2 style third-person gunplay: movement, aiming, shooting, bullet time, shootdodge, hit reactions. Optional Bevy plugin."
+license = "MIT"
+publish = false
+
+[features]
+default = []
+bevy = ["dep:bevy"]
+
+[dependencies]
+bevy = { version = "0.19.1", optional = true }
+
+[[example]]
+name = "range"
+required-features = ["bevy"]
+
+[workspace]
+members = ["tools/extract"]
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

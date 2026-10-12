@@ -1,0 +1,56 @@
+# Combat check: a wave of enemies in the range (the paper targets are replaced). Enemy indexes for
+# aim=tN / cam=eN, in spawn order: 0-2 Mafioso (Plain), 3-4 SemiCleaner (Normal), 5-6 BlackOps (Sharp).
+# The wave starts facing away from Max, idle. Mode changes are printed ("enemy N: mode").
+# Crouching in cover is in scripts/combat_cover.txt (it needs Max low and lined up with the crate).
+# Times are the sim clock; it slows with bullet time. Max is in god mode until (h).
+# Enemies shoot each other when lined up, so who takes cover and who dies can differ if the AI changes:
+# re-read the "enemy N: mode" lines and adjust the cam=eN lines.
+#
+# (a) idle poses, one enemy of each style up close
+0.0 combat god=on weapon=0 cam=e0 slowmo=off
+0.3 shot=a1_idle_mafioso
+0.4 cam=e3
+0.7 shot=a2_idle_semicleaner
+0.8 cam=e5
+1.1 shot=a3_idle_blackops
+# (b) Max fires two shots at enemy 0: the noise alerts them all, they turn and aim at him
+1.2 cam=player
+1.5 mash aim=t0
+1.62 cam=e6
+1.7 shot=b1_alerted_turning
+1.8 cam=e1
+2.0 aim=t0
+2.05 shot=b2_aiming_at_max
+# (d) enemy 0 runs for cover (about 2 s)
+2.1 cam=e0
+2.5 shot=d1_run_to_cover
+3.2 shot=d2_run_to_cover
+3.7 shot=d3_run_to_cover
+# (c) bullet time, seen from Max's side: enemy tracers in flight
+4.4 cam=side
+4.5 bt aim=t1
+5.1 shot=c1_tracers
+5.5 shot=c2_tracers
+5.6 bt
+# (e) one deterministic hit, god off: red edge flash and the direction mark
+5.7 cam=default god=off
+5.8 hurt=35
+5.85 shot=e1_hit_flash
+6.2 shot=e2_hit_mark
+# (f) painkiller: the HUD count drops and health climbs
+6.6 painkiller
+6.7 shot=f1_painkiller
+7.8 shot=f2_healing
+# (g) shootdodge with the MP5 at enemy 3, god back on; the MP5 fire sends enemy 6 to cover
+8.6 god=on weapon=5 aim=t3
+9.0 fwd shootdodge fire aim=t3
+9.5 fire aim=t3
+10.0 shot=g1_dodge_fire
+10.6 fire aim=t3
+11.2 aim=t3
+11.5 shot=g2_after
+# (h) god off, one huge hit: death message
+11.8 god=off
+11.9 hurt=500
+12.6 shot=h1_death
+13.2 quit

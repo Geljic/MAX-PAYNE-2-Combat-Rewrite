@@ -1,0 +1,59 @@
+# Root-motion dives and the jump dive, seen from the side (default data: assets/generated/payne.data).
+# Player clock = real time here (no bullet time, slowmo=off below), so dive frame = (t - start) x 30.
+# Check: crouched take-off, flat flight, no lying pose in the air, slide after touchdown.
+
+# (a) ground dive from the spawn, forward (-z). Dive starts 0.5 s.
+0.0 cam=side slowmo=off
+0.2 fwd
+0.5 fwd shootdodge
+0.55
+0.7 shot=a1_f06_takeoff_run
+0.9 shot=a2_f12_leaves_ground
+1.1 shot=a3_f18_flight
+1.3 shot=a4_f24_flight
+1.45 shot=a5_f28_touchdown
+1.65 shot=a6_f35_slide
+2.0 shot=a7_f45_slide_end
+2.4 shot=a8_prone
+2.6 fwd
+2.65
+
+# (b) turn round, standing jump, jump dive at the apex (enters the clip at frame 12).
+3.6 yaw=3.14159
+4.6
+4.8 jump
+4.85
+5.2 shot=b1_jump_rising
+5.4 shot=b2_apex
+5.42 shootdodge
+5.45
+5.5 shot=b3_f14_dive_entered
+5.6 shot=b4_f17_falling
+5.7 shot=b5_f20_falling
+5.8 shot=b6_f27_touchdown
+6.0 shot=b7_f33_slide
+6.7 shot=b8_prone
+6.8 fwd
+6.85
+
+# (c) onto the 1.2 m platform (x -9..-5, z -10..-6) with a running jump, then dive off its far edge.
+7.8 yaw=3.14159
+8.8
+8.9 left back
+10.8 fwd
+11.92 fwd jump
+11.97 fwd
+12.3
+12.45 shot=c0_on_the_platform
+12.9 fwd shootdodge
+12.95
+13.1 shot=c1_f06
+13.3 shot=c2_f12_leaves_platform
+13.5 shot=c3_f18_flight
+13.7 shot=c4_f24_past_the_edge
+13.8 shot=c5_f26_held_falling
+13.9 shot=c6_f26_held_falling
+14.0 shot=c7_touchdown_slide
+14.2 shot=c8_slide
+14.9 shot=c9_prone
+15.0 quit

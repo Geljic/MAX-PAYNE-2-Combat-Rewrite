@@ -1,0 +1,13 @@
+# (b2) the same dive seen from the side
+0.0 aim=t0 cam=side
+0.4 fwd shootdodge mash aim=t0
+0.5 mash aim=t0
+0.7 shot=b_side_dive_start
+0.9 mash aim=t0
+1.0 shot=b_side_dive_mid
+1.4 mash aim=t0
+1.5 shot=b_side_dive_land
+2.2 mash aim=t0
+2.3 shot=b_side_prone
+3.0 aim=t0
+3.1 quit

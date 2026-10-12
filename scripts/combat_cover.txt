@@ -1,0 +1,16 @@
+# One Sharp (black ops) gunman near the crate: shot at, he runs for cover, crouches, then peeks.
+# Max crouches in line with the crate, so the far side really hides the gunman (a standing Max
+# sees over it and the gunman counts as flanked). cam=e0 follows him (profile while he runs).
+# Mode changes are printed ("enemy N: mode").
+0.0 clear god=on weapon=0 crouch
+0.0 pos=0,-6
+0.0 spawn=C04_BlackOps_A,9,-10,-0.9
+0.2 shot=a_idle
+0.5 mash crouch aim=t0
+1.0 cam=e0 crouch aim=t0
+1.3 shot=b_running
+1.9 shot=b_running2
+2.6 shot=c_crouched_in_cover
+3.2 shot=c_crouched_in_cover2
+4.0 shot=d_peek_and_shoot
+4.6 quit
